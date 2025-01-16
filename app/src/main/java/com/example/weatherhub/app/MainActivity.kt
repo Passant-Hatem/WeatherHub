@@ -9,13 +9,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.example.weatherhub.core.presentaion.theme.WeatherHubTheme
-import com.example.weatherhub.features.current_weather.CurrentWeatherScreen
-import com.example.weatherhub.features.current_weather.CurrentWeatherScreenRoute
-import com.example.weatherhub.features.find_city.FindCityScreen
-import com.example.weatherhub.features.find_city.FindCityScreenRoute
-import com.example.weatherhub.features.seven_day_forecast.SevenDayForecastScreen
-import com.example.weatherhub.features.seven_day_forecast.SevenDayForecastScreenRoute
+import com.example.weatherhub.features.current_weather.presentation.CurrentWeatherScreen
+import com.example.weatherhub.features.current_weather.presentation.CurrentWeatherScreenRoute
+import com.example.weatherhub.features.seven_day_forecast.presentation.SevenDayForecastScreen
+import com.example.weatherhub.features.seven_day_forecast.presentation.SevenDayForecastScreenRoute
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,21 +25,12 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
-                    startDestination = FindCityScreenRoute
+                    startDestination = CurrentWeatherScreenRoute
                 ) {
-                    composable<FindCityScreenRoute> {
-                        FindCityScreen(
-                            onNavigateToSevenDayForecast = {
-                                navController.navigate(SevenDayForecastScreenRoute(it))
-                            },
-                            onNavigateToCurrentWeather = {
-                                navController.navigate(
-                                    CurrentWeatherScreenRoute
-                                )
-                            })
-                    }
                     composable<CurrentWeatherScreenRoute> {
-                        CurrentWeatherScreen()
+                        CurrentWeatherScreen {
+                            navController.navigate(SevenDayForecastScreenRoute(it))
+                        }
                     }
                     composable<SevenDayForecastScreenRoute> {
                         val args = it.toRoute<SevenDayForecastScreenRoute>()

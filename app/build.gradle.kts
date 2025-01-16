@@ -16,7 +16,8 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
+        buildConfigField( "String", "BASE_URL", "\"https://api.openweathermap.org/data/2.5/\"")
+        buildConfigField ( "String", "API_KEY", "\"ade83942c46bfd470a1d6da9de17ed5c\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
@@ -41,6 +42,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -83,6 +85,8 @@ dependencies {
 
     // Network
     implementation (libs.retrofit)
+    implementation (libs.converter.scalars)
+    implementation (libs.retrofit2.kotlinx.serialization.converter)
     implementation (libs.converter.gson)
     implementation (libs.okhttp)
     implementation (libs.logging.interceptor)
