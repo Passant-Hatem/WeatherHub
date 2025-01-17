@@ -5,7 +5,10 @@
     <string name="please_enter_a_value">Please, enter a value!</string>
     <string name="general_error_message">Something went wrong please try again!</string>
     <string name="onboarding_text">Search about your city, to see its weather today 😊</string>
-    <string name="connection_error_message">Please check ur internet connectin</string>
+    <string name="connection_error_message">Please check ur internet connection</string>
     <string name="city_not_found_error_message">We can\'t find the city, try another one</string>
     <string name="server_error_message">Server error, please try again later</string>
+    <string name="seven_day_forecast_screen_title">7-Day Forecast: %1$s</string>
+    <string name="seven_day_forecast_screen_title_placeholder">7-Day Forecast</string>
+    <string name="no_data_available">We can\'t find forecast</string>
 </resources>

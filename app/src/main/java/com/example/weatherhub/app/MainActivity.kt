@@ -9,10 +9,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.example.weatherhub.core.presentaion.theme.WeatherHubTheme
+import com.example.weatherhub.features.seven_day_forecast.presentation.SevenDayForecastScreen
+import com.example.weatherhub.features.seven_day_forecast.presentation.model.SevenDayForecastScreenRoute
 import com.example.weatherhub.features.today_weather.presentation.TodayWeatherScreen
 import com.example.weatherhub.features.today_weather.presentation.model.TodayWeatherScreenRoute
-import com.example.weatherhub.features.seven_day_forecast.presentation.SevenDayForecastScreen
-import com.example.weatherhub.features.seven_day_forecast.presentation.SevenDayForecastScreenRoute
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,7 +34,9 @@ class MainActivity : ComponentActivity() {
                     }
                     composable<SevenDayForecastScreenRoute> {
                         val args = it.toRoute<SevenDayForecastScreenRoute>()
-                        SevenDayForecastScreen(args.city)
+                        SevenDayForecastScreen(
+                            args.city,
+                            onNavigateBack = { navController.navigateUp() })
                     }
                 }
             }

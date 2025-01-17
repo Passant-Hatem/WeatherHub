@@ -4,7 +4,6 @@ import com.example.weatherhub.data.model.TodayWeatherDataResponse
 import com.example.weatherhub.features.today_weather.domain.Weather
 
 fun TodayWeatherDataResponse.toDomain(): Weather {
-    // todo: make sure to handle this exception
     val weatherInfo =
         weatherResponseDetails.firstOrNull() ?: throw IllegalStateException("Weather data missing")
     return Weather(

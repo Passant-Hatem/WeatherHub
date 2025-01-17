@@ -4,9 +4,9 @@ import com.example.weatherhub.core.mics.emitFlow
 import com.example.weatherhub.core.mics.flatMapSame
 import com.example.weatherhub.data.local.WeatherLocalDS
 import com.example.weatherhub.data.mapper.toDomain
-import com.example.weatherhub.data.model.WeeklyForecastResponse
 import com.example.weatherhub.data.remote.WeatherRemoteDS
 import com.example.weatherhub.domain.WeatherRepository
+import com.example.weatherhub.features.seven_day_forecast.domain.model.SevenDayForecast
 import com.example.weatherhub.features.today_weather.domain.Weather
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -20,8 +20,8 @@ class DefaultWeatherRepository @Inject constructor(
             localDS.saveLastSearchedCity(it.cityName)
         }
 
-    override fun getSevenDayForecast(cityName: String): Flow<WeeklyForecastResponse> = emitFlow {
-        remoteDS.getWeeklyForecast(cityName, SEVEN_DAYS)
+    override fun getSevenDayForecast(cityName: String): Flow<SevenDayForecast> = emitFlow {
+        remoteDS.getWeeklyForecast(cityName, SEVEN_DAYS).toDomain()
     }
 
     override fun getLastSearchedCity(): Flow<String?> {
