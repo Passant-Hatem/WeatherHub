@@ -2,13 +2,24 @@ package com.example.weatherhub.core.presentaion.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import com.example.weatherhub.core.presentaion.components.AppbarPlaceHolder
+
+
+// fixme: color scheme
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -54,4 +65,30 @@ fun WeatherHubTheme(
         typography = Typography,
         content = content
     )
+}
+
+@Composable
+fun WeatherHubScaffold(
+    modifier: Modifier = Modifier,
+    containerColor: Color? = null,
+    appBar: (@Composable () -> Unit)? = null,
+    content: @Composable () -> Unit,
+) {
+    WeatherHubTheme {
+        Scaffold(
+            topBar = appBar ?: { AppbarPlaceHolder() },
+            content = { paddingVals ->
+                Box(
+                    Modifier
+                        .fillMaxSize()
+                        .padding(paddingVals)
+                ) {
+                    content()
+                }
+            },
+            modifier = modifier,
+            containerColor = containerColor ?: MaterialTheme.colorScheme.background,
+            contentWindowInsets = WindowInsets(0, 0, 0, 0)
+        )
+    }
 }

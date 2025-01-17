@@ -9,8 +9,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.example.weatherhub.core.presentaion.theme.WeatherHubTheme
-import com.example.weatherhub.features.current_weather.presentation.CurrentWeatherScreen
-import com.example.weatherhub.features.current_weather.presentation.CurrentWeatherScreenRoute
+import com.example.weatherhub.features.today_weather.presentation.TodayWeatherScreen
+import com.example.weatherhub.features.today_weather.presentation.model.TodayWeatherScreenRoute
 import com.example.weatherhub.features.seven_day_forecast.presentation.SevenDayForecastScreen
 import com.example.weatherhub.features.seven_day_forecast.presentation.SevenDayForecastScreenRoute
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,10 +25,10 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
-                    startDestination = CurrentWeatherScreenRoute
+                    startDestination = TodayWeatherScreenRoute
                 ) {
-                    composable<CurrentWeatherScreenRoute> {
-                        CurrentWeatherScreen {
+                    composable<TodayWeatherScreenRoute> {
+                        TodayWeatherScreen {
                             navController.navigate(SevenDayForecastScreenRoute(it))
                         }
                     }

@@ -1,15 +1,15 @@
-package com.example.weatherhub.data.data.model
+package com.example.weatherhub.data.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class WeatherResponse(
+data class TodayWeatherDataResponse(
     @SerialName("coord")
     val coordinates: Coordinates,
 
     @SerialName("weather")
-    val weatherDetails: List<Weather>,
+    val weatherResponseDetails: List<WeatherResponse>,
 
     @SerialName("base")
     val dataSource: String,
@@ -46,7 +46,7 @@ data class WeatherResponse(
 )
 
 @Serializable
-data class Weather(
+data class WeatherResponse(
     @SerialName("id")
     val conditionId: Int,
     @SerialName("main")

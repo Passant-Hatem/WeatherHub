@@ -1,4 +1,4 @@
-package com.example.weatherhub.data.data.model
+package com.example.weatherhub.data.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

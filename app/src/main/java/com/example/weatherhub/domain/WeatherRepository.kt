@@ -1,12 +1,14 @@
 package com.example.weatherhub.domain
 
-import com.example.weatherhub.data.data.model.WeatherResponse
-import com.example.weatherhub.data.data.model.WeeklyForecastResponse
+import com.example.weatherhub.data.model.WeeklyForecastResponse
+import com.example.weatherhub.features.today_weather.domain.Weather
 import kotlinx.coroutines.flow.Flow
 
 interface WeatherRepository {
-    // fixme: add the domain data class
-    fun getCityWeather(cityName: String): Flow<WeatherResponse>
+
+    fun getCityWeather(cityName: String): Flow<Weather>
 
     fun getSevenDayForecast(cityName: String): Flow<WeeklyForecastResponse>
+
+    fun getLastSearchedCity(): Flow<String?>
 }

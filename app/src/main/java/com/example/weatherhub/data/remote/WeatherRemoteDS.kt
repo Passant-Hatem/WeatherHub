@@ -1,8 +1,7 @@
-package com.example.weatherhub.data.data
+package com.example.weatherhub.data.remote
 
-import com.example.weatherhub.BuildConfig
-import com.example.weatherhub.data.data.model.WeatherResponse
-import com.example.weatherhub.data.data.model.WeeklyForecastResponse
+import com.example.weatherhub.data.model.TodayWeatherDataResponse
+import com.example.weatherhub.data.model.WeeklyForecastResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,13 +10,12 @@ interface WeatherRemoteDS {
     @GET("weather")
     suspend fun getCityWeather(
         @Query("q") cityName: String
-    ): WeatherResponse
+    ): TodayWeatherDataResponse
 
     @GET("forecast")
     suspend fun getWeeklyForecast(
         @Query("q") cityName: String,
         @Query("cnt") daysCount: Int
-//        @Query("units") units: String = "metric" // Units of measurement (default is metric)
     ): WeeklyForecastResponse
 
 
