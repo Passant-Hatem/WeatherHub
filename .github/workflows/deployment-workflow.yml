@@ -27,6 +27,9 @@ jobs:
           restore-keys: |
             gradle-${{ runner.os }}-
 
+      - name: Grant execute permissions for gradlew
+        run: chmod +x ./gradlew
+
       - name: Run lint checks
         run: ./gradlew lint
 
