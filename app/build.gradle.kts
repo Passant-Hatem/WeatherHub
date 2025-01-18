@@ -106,7 +106,12 @@ dependencies {
     //coil
     implementation (libs.coil.compose)
 
-    implementation(libs.weather.util)
+//     comment out after publish the library
+//    implementation(libs.weather.util)
+
+    // add the library as module project, to keep the project working correctly
+    implementation(project(":weather-utils"))
+
 }
 
 kapt {

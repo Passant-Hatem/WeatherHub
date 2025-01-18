@@ -43,6 +43,12 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 }
 
+// to publish the library u need to run these commands
+//             ./gradlew :weather-utils:assembleRelease
+//             ./gradlew :weather-utils:publish
+// after that update the maven url in the gradle setting file
+// finally comment out the library dependency in both tomel and gradle files
+
 publishing {
     publications {
         create<MavenPublication>("weatherUtils") {

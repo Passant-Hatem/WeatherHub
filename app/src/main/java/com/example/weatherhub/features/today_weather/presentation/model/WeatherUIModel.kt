@@ -1,7 +1,8 @@
 package com.example.weatherhub.features.today_weather.presentation.model
 
-import com.example.weather_utils.TemperatureFormatter.kelvinToCelsius
-import com.example.weather_utils.TimeFormatter.convertToLocalTime
+
+import com.example.weather_utils.TemperatureFormatter
+import com.example.weather_utils.TimeFormatter
 import com.example.weatherhub.core.presentaion.model.WeatherIconProvider.getIconURL
 import com.example.weatherhub.features.today_weather.domain.Weather
 
@@ -15,9 +16,13 @@ data class WeatherUIModel(
 
 fun Weather.toUIModel(): WeatherUIModel{
     return WeatherUIModel(
-        dataAndTime = convertToLocalTime(timestamp, timeZone),
+        // if u r using the library comment these out
+//        dataAndTime = convertToLocalTime(timestamp, timeZone),
+//        temperature = kelvinToCelsius(temperature),
+
+        dataAndTime = TimeFormatter.convertToLocalTime(timestamp, timeZone),
         cityName = cityName,
-        temperature = kelvinToCelsius(temperature),
+        temperature = TemperatureFormatter.kelvinToCelsius(temperature),
         condition = condition,
         iconUrl = getIconURL(iconCode)
     )

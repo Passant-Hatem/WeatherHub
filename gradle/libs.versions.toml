@@ -76,7 +76,9 @@ retrofit2-kotlinx-serialization-converter = { module = "com.jakewharton.retrofit
 androidx-datastore-preferences-core-jvm = { group = "androidx.datastore", name = "datastore-preferences-core-jvm", version.ref = "datastorePreferencesCoreJvm" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-weather-util = { group = "com.passant.weatherutils", name = "weather-utils", version.ref = "weatherUtil" }
+
+# comment out after publish the library
+#weather-util = { group = "com.passant.weatherutils", name = "weather-utils", version.ref = "weatherUtil" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

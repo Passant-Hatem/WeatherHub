@@ -16,14 +16,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven {
-            val repoPath = if (System.getProperty("os.name").startsWith("Windows")) {
-                "C:\\Users\\DELL\\AndroidStudioProjects\\WeatherHub\\weather-utils\\build\\repo"
-            } else {
-                "/home/runner/work/WeatherHub/WeatherHub/weather-utils/build/repo"
-            }
-            url = uri(repoPath)
-        }
+        // comment out and add ur absolute url, after publish the library locally
 //        maven { url = uri("C:\\Users\\DELL\\AndroidStudioProjects\\WeatherHub\\weather-utils\\build\\repo") }
     }
 }
