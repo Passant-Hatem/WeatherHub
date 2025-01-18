@@ -21,7 +21,7 @@ import com.example.weatherhub.features.seven_day_forecast.presentation.component
 import com.example.weatherhub.features.seven_day_forecast.presentation.model.SevenDayForecastEffect
 import com.example.weatherhub.features.seven_day_forecast.presentation.model.SevenDayForecastIntent
 import com.example.weatherhub.features.seven_day_forecast.presentation.model.SevenDayForecastState
-import com.example.weatherhub.features.today_weather.presentation.model.toUIModel
+import com.example.weatherhub.features.today_weather.presentation.model.toForecastUIModel
 
 @Composable
 fun SevenDayForecastScreen(
@@ -67,7 +67,7 @@ fun SevenDayForecastScreen(
         when (uiState.state) {
             is SevenDayForecastState.Loading -> LoadingScreen(modifier = Modifier.fillMaxSize())
             is SevenDayForecastState.Content -> WeatherForecastList(
-                forecast = (uiState.state as SevenDayForecastState.Content).forecast.map { it.toUIModel() }
+                forecast = (uiState.state as SevenDayForecastState.Content).forecast.map { it.toForecastUIModel() }
             )
             // todo: replace with screen
             is SevenDayForecastState.Empty -> Text(

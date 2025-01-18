@@ -27,3 +27,16 @@ fun Weather.toUIModel(): WeatherUIModel{
         iconUrl = getIconURL(iconCode)
     )
 }
+fun Weather.toForecastUIModel(): WeatherUIModel{
+    return WeatherUIModel(
+        // if u r using the library comment these out
+//        dataAndTime = convertToLocalDate(timestamp, timeZone),
+//        temperature = kelvinToCelsius(temperature),
+
+        dataAndTime = TimeFormatter.convertToLocalDate(timestamp, timeZone),
+        cityName = cityName,
+        temperature = TemperatureFormatter.kelvinToCelsius(temperature),
+        condition = condition,
+        iconUrl = getIconURL(iconCode)
+    )
+}

@@ -58,7 +58,6 @@ fun WeatherForecastCard(weather: WeatherUIModel, modifier: Modifier = Modifier) 
             )
             Spacer(modifier = Modifier.width(16.dp))
             Column {
-                // todo: only show data and corresponding day
                 Text(
                     text = dataAndTime,
                     style = MaterialTheme.typography.titleMedium,
@@ -68,7 +67,7 @@ fun WeatherForecastCard(weather: WeatherUIModel, modifier: Modifier = Modifier) 
                 Text(
                     text = temperature,
                     style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.secondary
+                    color = MaterialTheme.colorScheme.primary,
                 )
                 Spacer(modifier = Modifier.height(2.dp))
                 Text(
