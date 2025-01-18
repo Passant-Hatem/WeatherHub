@@ -106,7 +106,6 @@ dependencies {
     //coil
     implementation (libs.coil.compose)
 
-//    implementation("com.passant.weatherutils:weather-utils:1.0.0")
     implementation(libs.weather.util)
 }
 
