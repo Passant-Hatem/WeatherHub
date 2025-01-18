@@ -1,8 +1,8 @@
 package com.example.weatherhub.features.today_weather.presentation.model
 
-import com.example.weatherhub.core.presentaion.model.convertToLocalTime
-import com.example.weatherhub.core.presentaion.model.getIconURL
-import com.example.weatherhub.core.presentaion.model.kelvinToCelsius
+import com.example.weather_utils.TemperatureFormatter.kelvinToCelsius
+import com.example.weather_utils.TimeFormatter.convertToLocalTime
+import com.example.weatherhub.core.presentaion.model.WeatherIconProvider.getIconURL
 import com.example.weatherhub.features.today_weather.domain.Weather
 
 data class WeatherUIModel(

@@ -16,8 +16,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("C:\\Users\\DELL\\AndroidStudioProjects\\WeatherHub\\weather-utils\\build\\repo") }
     }
 }
 
 rootProject.name = "WeatherHub"
 include(":app")
+include(":weather-utils")
